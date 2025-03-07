@@ -1,0 +1,50 @@
+#数据源配置
+spring:
+  redis:
+    ##redis 单机环境配置
+    host: 101.126.5.141
+    port: 6379
+    password: lilishop
+    database: 2
+    ssl: false
+# 数据库脚本请使用我们提供的版本，不要使用blade的
+  datasource:
+    url: jdbc:mysql://101.126.5.141:3306/mjkj_chatgpt_2_0?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
+    username: lilishop
+    password: lilishop
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  ***************** 下面需要改为个人的 ********************
+
+#短信验证码 线下环境可以不用配置 验证码为123456
+mjkjsms:
+  templateId: SMS_
+  signName: 超级AI大脑
+  accessKey:
+  secretKey:
+
+
+
+
+chatgpt:
+  debug: 'true'
+
+  chatgptModel: 'gpt-3.5-turbo-16k'
+  httpUrl: 'http://101.126.5.141:9885/chatgpt/api/getWenxinContent'
+  #上传 D:\project\SpringBlade-boot-3.7.1\SpringBlade-boot\src\main\resources\image
+  uploadUrl: D:/project/SpringBlade-boot-3.7.1/SpringBlade-boot/src/main/resources/image
+  #logo
+  logoUrl: D:/project/SpringBlade-boot-3.7.1/SpringBlade-boot/src/main/resources/image/logo.png
+  # 机器人个人提问信息
+  wechatRotGeRenTip: 温馨提示：更多好玩请关注《超级AI大脑》公众号，即可体验
+  # 机器人名称
+  wechatRotGeRenName: '超级AI大脑 ,AI智多星 ,十牛AI ,云熹堂健康AI机器人 '
+  # 图片模型 chatgpt
+  imageModel: ChatGPT
+  imageModelWechatRot: chatgpt
+  # 默认头像
+  defaultLogo: https://ai.oss.mj.ink/chatgpt/upload/2023-05-30/1663433665026666498_1685428465871.png
+  # 默认名字
+  defaultUserName: '超级AI大脑'
+
+
+
