@@ -2,14 +2,14 @@
 spring:
   redis:
     ##redis 单机环境配置
-    host: 101.126.5.141
+    host: 115.190.95.13
     port: 6379
     password: lilishop
     database: 2
     ssl: false
 # 数据库脚本请使用我们提供的版本，不要使用blade的
   datasource:
-    url: jdbc:mysql://101.126.5.141:3306/mjkj_chatgpt_2_0?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://115.190.95.13:3306/mjkj_chatgpt_2_0?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
     username: lilishop
     password: lilishop
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -29,7 +29,7 @@ chatgpt:
   debug: 'true'
 
   chatgptModel: 'gpt-3.5-turbo-16k'
-  httpUrl: 'http://101.126.5.141:9885/chatgpt/api/getWenxinContent'
+  httpUrl: 'http://115.190.95.13:9885/chatgpt/api/getWenxinContent'
   #上传 D:\project\SpringBlade-boot-3.7.1\SpringBlade-boot\src\main\resources\image
   uploadUrl: D:/project/SpringBlade-boot-3.7.1/SpringBlade-boot/src/main/resources/image
   #logo
