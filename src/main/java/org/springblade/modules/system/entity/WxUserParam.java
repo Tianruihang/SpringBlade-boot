@@ -12,4 +12,5 @@ public class WxUserParam {
 	String wxAvatar;
 	String inviteCode;//邀请码
 	String phone;//手机号码
+	String password;//密码
 }

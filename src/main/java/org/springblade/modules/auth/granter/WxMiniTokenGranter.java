@@ -20,6 +20,7 @@ package org.springblade.modules.auth.granter;
 import org.springblade.core.log.exception.ServiceException;
 import org.springblade.core.secure.utils.AuthUtil;
 import org.springblade.core.tool.api.R;
+import org.springblade.core.tool.utils.DigestUtil;
 import org.springblade.core.tool.utils.Func;
 
 import org.springblade.modules.system.entity.SmsCodeParam;
@@ -76,6 +77,7 @@ public class WxMiniTokenGranter implements ITokenGranter {
 			wxUserParam.setWxAvatar(wxAvatar);
 			wxUserParam.setInviteCode(inviteCode);
 			wxUserParam.setPhone(phone);
+			wxUserParam.setPassword(password);
 			if(Func.equals(loginType,"phone")){//手机号码登录
 				SmsCodeParam codeParam=new SmsCodeParam();
 				codeParam.setPhone(phone);
@@ -83,6 +85,14 @@ public class WxMiniTokenGranter implements ITokenGranter {
 				Boolean data =mjkjUserService.checkPhone(codeParam);
 				if(!data){
 					throw new ServiceException("验证码不正确");
+				}
+				//判断密码是否正确
+				userInfo = mjkjUserService.phoneLogin(wxUserParam);
+				if (!Func.isEmpty(userInfo)) {
+					//判断userInfo中的密码是否匹配
+					if (!Func.equals(DigestUtil.encrypt(password), userInfo.getUser().getPassword())) {
+						throw new ServiceException("密码不正确");
+					}
 				}
 				wxUserParam=new WxUserParam();
 				wxUserParam.setCode(phoneCode);

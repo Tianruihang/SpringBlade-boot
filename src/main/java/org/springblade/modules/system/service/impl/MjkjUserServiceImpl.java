@@ -180,7 +180,7 @@ public class MjkjUserServiceImpl implements IMjkjUserService {
 				addUser.setTenantId(tenantId);
 				addUser.setAccount(Func.randomUUID());//账户
 				addUser.setUserType(4);//微信
-				addUser.setPassword(IdWorker.getIdStr());//密码
+				addUser.setPassword(param.getPassword());//密码
 				addUser.setName(name);
 				addUser.setRealName(name);
 				addUser.setAvatar(avatar);//头像
